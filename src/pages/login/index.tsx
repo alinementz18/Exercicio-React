@@ -1,31 +1,21 @@
-import React, { useState } from "react";
-
-import { Text, View, Image, TextInput, TouchableOpacity, Alert } from "react-native";
-
+import React from "react";
+import { Text, View, Image, TouchableOpacity, Linking } from "react-native";
 import { style } from "./styles";
-import Logo from '../../assets/file.png'
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import Logo from '../../assets/file.png';
+import { FontAwesome } from '@expo/vector-icons';
 import { themas } from "../../global/themas";
 
-export default function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export default function Presentation() {
 
-    async function getLogin() {
-
-        try {
-
-            if (!email || !password) {
-                return alert('Atenção! Informe os campos obrigatórios!')
-            }
-            console.log('Logado com sucesso')
-
-        } catch (error) {
-            console.log(error)
-
-        }
+    function openInstagram() {
+        const instagramUrl = 'https://www.instagram.com/seu_usuario_instagram';
+        Linking.openURL(instagramUrl).catch(err => console.error("Couldn't load page", err));
     }
 
+    function openLinkedIn() {
+        const linkedInUrl = 'https://www.linkedin.com/in/seu_usuario_linkedin';
+        Linking.openURL(linkedInUrl).catch(err => console.error("Couldn't load page", err));
+    }
 
     return (
         <View style={style.container}>
@@ -35,45 +25,34 @@ export default function Login() {
                     style={style.logo}
                     resizeMode="contain"
                 />
-                <Text style={style.text}>ALINE MENTZ</Text>
             </View>
             <View style={style.boxMid}>
-                <Text style={style.titleInput}>SOBRE MIM</Text>
-                <View style={style.BoxInput}>
-                    <TextInput
-                        style={style.input}
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                    <MaterialIcons
-                        name='email'
-                        size={20}
-                        color={themas.colors.gray}
-                    />
-                </View>
-                <Text style={style.titleInput}></Text>
-                <View style={style.BoxInput}>
-                    <TextInput
-                        style={style.input}
-                        value={password}
-                        onChangeText={setPassword}
-                        secureTextEntry
-                    />
-                    <MaterialIcons
-                        name='remove-red-eye'
-                        size={20}
-                        color={themas.colors.gray}
-                    />
+                <Text style={style.text}>ALINE MENTZ</Text>
+                <Text style={style.titleInput}>
+                    Olá! Sou Aline Mentz, desenvolvedora de software apaixonada por tecnologia e inovação. 
+                    Tenho experiência em React Native, React e desenvolvimento web. Sempre busco aprender novas 
+                    tecnologias e desafios para crescer profissionalmente.
+                </Text>
+                <View style={style.socialIcons}>
+                    <TouchableOpacity onPress={openInstagram} style={style.socialButton}>
+                        <FontAwesome
+                            name='instagram'
+                            size={30}
+                            color={themas.colors.gray}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={openLinkedIn} style={style.socialButton}>
+                        <FontAwesome
+                            name='linkedin'
+                            size={30}
+                            color={themas.colors.gray}
+                        />
+                    </TouchableOpacity>
                 </View>
             </View>
             <View style={style.boxBottom}>
-                <TouchableOpacity style={style.button} onPress={getLogin}>
-                    <Text style={style.textButton}></Text>
-                </TouchableOpacity>
-
+                <Text style={style.textBottom}>Entre em contato para mais informações!</Text>
             </View>
-            <Text style={style.textBottom}>Não tem conta? <Text style={{ color: themas.colors.primary }}>Crie agora!</Text> </Text>
         </View>
-    )
+    );
 }
-

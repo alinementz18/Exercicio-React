@@ -6,88 +6,53 @@ export const style = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: themas.colors.primary
+        backgroundColor: themas.colors.primary,
     },
     boxTop: {
-        height: Dimensions.get('window').height / 3,
-        width: '100%',
-        //backgroundColor:'red',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    boxMid: {
         height: Dimensions.get('window').height / 4,
         width: '100%',
-        //backgroundColor:'green',
-        paddingHorizontal: 37
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    boxMid: {
+        height: Dimensions.get('window').height / 2,
+        width: '100%',
+        paddingHorizontal: 37,
+        justifyContent: 'center',
     },
     boxBottom: {
-        height: Dimensions.get('window').height / 3,
+        height: Dimensions.get('window').height / 4,
         width: '100%',
-        //backgroundColor:'blue',
         alignItems: 'center',
-        justifyContent: 'center'
-
+        justifyContent: 'center',
     },
     logo: {
         width: 200,
-        aspectRatio: '4/3'
+        aspectRatio: '4/3',
     },
     text: {
         fontWeight: 'bold',
-        marginTop: 40,
-        fontSize: 18
+        fontSize: 22,
+        textAlign: 'center',
+        marginBottom: 20,
     },
     titleInput: {
-        marginLeft: 5,
-        color: themas.colors.gray,
-        marginTop: 20
+        marginLeft: 10,
+        color: themas.colors.lightGray,
+        marginTop: 20,
+        fontSize: 18,
+        textAlign: 'center',
     },
-    BoxInput: {
-        width: '100%',
-        height: 40,
-        borderWidth: 1,
-        borderRadius: 40,
-        marginTop: 10,
+    socialIcons: {
         flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 5,
-        backgroundColor: themas.colors.lightGray,
-        borderColor: themas.colors.lightGray
-    },
-    input: {
-        height: '100%',
-        width: '90%',
-        borderRadius: 40,
-        paddingLeft:5
-    },
-    button: {
-        width: 250,
-        height: 50,
-        alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: themas.colors.primary,
-        borderRadius: 40,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.29,
-        shadowRadius: 4.65,
-
-        elevation: 7,
-
+        marginTop: 20,
     },
-    textButton: {
+    socialButton: {
+        marginHorizontal: 15,
+    },
+    textBottom: {
         fontSize: 16,
-        color: '#FFFF',
-        fontWeight: 'bold'
+        color: themas.colors.gray,
     },
-    textBottom:{
-        fontSize:16,
-        color:themas.colors.gray
-    }
-
-
-})
+});
